@@ -10,17 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.dio.picpayclone.enums.BandeiraCartao;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "USUARIOS")
 public class CartaoCredito extends EntidadeBase {
@@ -38,5 +28,45 @@ public class CartaoCredito extends EntidadeBase {
 	@ManyToOne(cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "CC_USUARIO_ID", nullable = false)
 	private Usuario usuario;
+
+	public CartaoCredito(String numero, BandeiraCartao bandeira, String numeroToken, Usuario usuario) {
+		super();
+		this.numero = numero;
+		this.bandeira = bandeira;
+		this.numeroToken = numeroToken;
+		this.usuario = usuario;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public BandeiraCartao getBandeira() {
+		return bandeira;
+	}
+
+	public void setBandeira(BandeiraCartao bandeira) {
+		this.bandeira = bandeira;
+	}
+
+	public String getNumeroToken() {
+		return numeroToken;
+	}
+
+	public void setNumeroToken(String numeroToken) {
+		this.numeroToken = numeroToken;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }

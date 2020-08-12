@@ -10,17 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "TRANSACOES")
 public class Transacao extends EntidadeBase {
@@ -41,5 +30,54 @@ public class Transacao extends EntidadeBase {
 	
 	@Column(name = "TR_VALOR", nullable = false)
 	private Double valor;
+
+	public Transacao(String codigo, Usuario origem, Usuario destino, LocalDateTime dataHora, Double valor) {
+		super();
+		this.codigo = codigo;
+		this.origem = origem;
+		this.destino = destino;
+		this.dataHora = dataHora;
+		this.valor = valor;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public Usuario getOrigem() {
+		return origem;
+	}
+
+	public void setOrigem(Usuario origem) {
+		this.origem = origem;
+	}
+
+	public Usuario getDestino() {
+		return destino;
+	}
+
+	public void setDestino(Usuario destino) {
+		this.destino = destino;
+	}
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
 	
 }

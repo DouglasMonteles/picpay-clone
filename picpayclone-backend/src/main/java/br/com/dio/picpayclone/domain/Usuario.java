@@ -10,17 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "USUARIOS")
 public class Usuario extends EntidadeBase {
@@ -54,5 +43,100 @@ public class Usuario extends EntidadeBase {
 	
 	@Column(name = "USU_ATIVO", nullable = false)
 	private Boolean ativo;
+
+	public Usuario(String login, String senha, String email, String nomeCompleto, String cpf, LocalDate dataNascimento,
+			String numeroTelefone, List<CartaoCredito> cartoesCredito, Double saldo, Boolean ativo) {
+		super();
+		this.login = login;
+		this.senha = senha;
+		this.email = email;
+		this.nomeCompleto = nomeCompleto;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.numeroTelefone = numeroTelefone;
+		this.cartoesCredito = cartoesCredito;
+		this.saldo = saldo;
+		this.ativo = ativo;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNomeCompleto() {
+		return nomeCompleto;
+	}
+
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getNumeroTelefone() {
+		return numeroTelefone;
+	}
+
+	public void setNumeroTelefone(String numeroTelefone) {
+		this.numeroTelefone = numeroTelefone;
+	}
+
+	public List<CartaoCredito> getCartoesCredito() {
+		return cartoesCredito;
+	}
+
+	public void setCartoesCredito(List<CartaoCredito> cartoesCredito) {
+		this.cartoesCredito = cartoesCredito;
+	}
+
+	public Double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
 	
 }
