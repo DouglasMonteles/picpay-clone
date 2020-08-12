@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import br.com.dio.picpayclone.enums.BandeiraCartao;
 
 @Entity
-@Table(name = "USUARIOS")
+@Table(name = "CARTAO_CREDITO")
 public class CartaoCredito extends EntidadeBase {
 
 	@Column(name = "CC_NUMERO", nullable = false)

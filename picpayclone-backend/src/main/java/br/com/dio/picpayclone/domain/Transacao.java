@@ -22,7 +22,7 @@ public class Transacao extends EntidadeBase {
 	private Usuario origem;
 	
 	@ManyToOne(cascade = { CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@Column(name = "TR_USUARIO_DESTINO", nullable = false)
+	@JoinColumn(name = "TR_USUARIO_DESTINO", nullable = false)
 	private Usuario destino;
 	
 	@Column(name = "TR_DATA_HORA", nullable = false)
