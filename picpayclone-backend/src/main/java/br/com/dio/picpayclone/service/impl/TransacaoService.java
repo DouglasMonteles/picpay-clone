@@ -1,6 +1,8 @@
 package br.com.dio.picpayclone.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import br.com.dio.picpayclone.conversor.TransacaoConversor;
@@ -42,6 +44,13 @@ public class TransacaoService implements ITransacaoService {
 		usuarioService.validar(transacao.getDestino(), transacao.getOrigem());
 		
 		return transacaoRepository.save(transacao);
+	}
+
+	@Override
+	public Page<TransacaoDTO> listar(Pageable paginacao, String login) {
+		Page<Transacao> transacoes = transacaoRepository.findByOrigem_LoginOrDestino_Login(login, login, paginacao); // WHERE Login OR WHERE Login
+		
+		return transacaoConversor.converterPageEntidadeParaDto(transacoes);
 	}
 	
 }

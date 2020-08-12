@@ -31,7 +31,7 @@ public class TransacaoConversor extends ConversorBase<Transacao, TransacaoDTO> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Page<TransacaoDTO> converterDtoParaEntidade(Page<Transacao> entidade) {
+	public Page<TransacaoDTO> converterPageEntidadeParaDto(Page<Transacao> entidade) {
 		ModelMapper modelMapper = new ModelMapper();
 		
 		modelMapper.addMappings(new PropertyMap<Page<Transacao>, Page<TransacaoDTO>>() {
