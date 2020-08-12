@@ -29,7 +29,7 @@ public abstract class ResouceBase<T> {
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 	
-	protected ResponseEntity<T> responserSucessoComItem(T object) {
+	protected ResponseEntity<T> responderSucessoComItem(T object) {
 		return ResponseEntity.status(HttpStatus.OK).body(object);
 	}
 	
