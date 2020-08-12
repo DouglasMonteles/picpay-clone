@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.dio.picpayclone.domain.Transacao;
 import br.com.dio.picpayclone.dto.TransacaoDTO;
+import br.com.dio.picpayclone.service.IUsuarioService;
 
 @Component
 public class TransacaoConversor extends ConversorBase<Transacao, TransacaoDTO> {
